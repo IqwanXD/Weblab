@@ -1,0 +1,35 @@
+{
+  "name": "GitHub Light",
+  "editor": {
+    "background": "#FFFFFFFF",
+    "text": "#FF24292F",
+    "selection": "#66B6D7FF",
+    "gutter": "#FFF6F8FA",
+    "gutterLine": "#FFD0D7DE",
+    "lineNumber": "#FF8C959F",
+    "lineNumberActive": "#FF24292F",
+    "currentLine": "#0F000000",
+    "indentGuide": "#1F000000",
+    "bracketFill": "#26000000",
+    "bracketStroke": "#59000000",
+    "scrollbar": "#CC57606A",
+    "scrollbarTrack": "#1A000000",
+    "iconTint": "#FF57606A",
+    "swatchStroke": "#33000000"
+  },
+  "tokens": {
+    "keyword": "#FFCF222E",
+    "tag": "#FF116329",
+    "constant": "#FF0550AE",
+    "package": "#FF953800",
+    "attribute": "#FF0550AE",
+    "type": "#FF953800",
+    "literal": "#FF0550AE",
+    "number": "#FF0550AE",
+    "string": "#FF0A3069",
+    "comment": "#FF6E7781",
+    "declaration": "#FF8250DF",
+    "function": "#FF8250DF",
+    "annotation": "#FF953800"
+  }
+}

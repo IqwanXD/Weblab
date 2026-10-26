@@ -1,0 +1,128 @@
+{
+  "name": "javascript",
+  "extensions": [
+    "js",
+    "ts",
+    "jsx",
+    "tsx"
+  ],
+  "rules": [
+    {
+      "scope": "comment",
+      "pattern": "//[^\\n]*|/\\*[\\s\\S]*?(?:\\*/|\\z)"
+    },
+    {
+      "scope": "string",
+      "pattern": "\"{3}[\\s\\S]*?(?:\"{3}|\\z)"
+    },
+    {
+      "scope": "string",
+      "pattern": "\"(?:\\\\.|[^\"\\\\\\n])*\"?|'(?:\\\\.|[^'\\\\\\n])*'?|`(?:\\\\.|[^`\\\\])*`?"
+    },
+    {
+      "scope": "annotation",
+      "pattern": "@[A-Za-z_][\\w.]*"
+    },
+    {
+      "scope": "number",
+      "pattern": "\\b(?:0[xX][0-9A-Fa-f_]+|\\d[\\d_]*(?:\\.\\d+)?(?:[eE][+-]?\\d+)?)[fFdDlLuU]?\\b"
+    },
+    {
+      "scope": "literal",
+      "pattern": "\\b(?:true|false|null)\\b"
+    },
+    {
+      "scope": "keyword",
+      "words": [
+        "abstract",
+        "assert",
+        "boolean",
+        "break",
+        "byte",
+        "case",
+        "catch",
+        "char",
+        "class",
+        "const",
+        "continue",
+        "default",
+        "do",
+        "double",
+        "else",
+        "enum",
+        "extends",
+        "final",
+        "finally",
+        "float",
+        "for",
+        "goto",
+        "if",
+        "implements",
+        "import",
+        "instanceof",
+        "int",
+        "interface",
+        "long",
+        "native",
+        "new",
+        "package",
+        "private",
+        "protected",
+        "public",
+        "return",
+        "short",
+        "static",
+        "strictfp",
+        "super",
+        "switch",
+        "synchronized",
+        "this",
+        "throw",
+        "throws",
+        "transient",
+        "try",
+        "void",
+        "volatile",
+        "while",
+        "function",
+        "let",
+        "const",
+        "typeof",
+        "export",
+        "async",
+        "await",
+        "yield",
+        "undefined",
+        "delete",
+        "of",
+        "from",
+        "default",
+        "static",
+        "get",
+        "set",
+        "debugger",
+        "with"
+      ]
+    },
+    {
+      "scope": "package",
+      "pattern": "(?:(?<=import )|(?<=package )|(?<=static ))[A-Za-z_][\\w.*]*(?=[ \\t]*(?:;|$))"
+    },
+    {
+      "scope": "constant",
+      "pattern": "\\b[A-Z][A-Z0-9_]+\\b"
+    },
+    {
+      "scope": "constant",
+      "pattern": "(?<!\\.)\\b[A-Z][A-Za-z0-9_]+(?=\\.[A-Za-z])"
+    },
+    {
+      "scope": "type",
+      "pattern": "\\b[A-Z][A-Za-z0-9_]+\\b"
+    },
+    {
+      "scope": "declaration",
+      "pattern": "\\b[a-z_$][A-Za-z0-9_$]*(?=\\s*\\([^()]*\\)\\s*(?:throws\\s[\\w.,\\s]+)?\\{)"
+    }
+  ]
+}

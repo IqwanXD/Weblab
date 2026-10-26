@@ -1,0 +1,37 @@
+{
+  "name": "css",
+  "extensions": [
+    "css"
+  ],
+  "hashColorAlphaFirst": true,
+  "rules": [
+    {
+      "scope": "comment",
+      "pattern": "/\\*[\\s\\S]*?(?:\\*/|\\z)"
+    },
+    {
+      "scope": "string",
+      "pattern": "\"(?:\\\\.|[^\"\\\\\\n])*\"?|'(?:\\\\.|[^'\\\\\\n])*'?"
+    },
+    {
+      "scope": "number",
+      "pattern": "#[0-9a-fA-F]{3,8}\\b"
+    },
+    {
+      "scope": "keyword",
+      "pattern": "@[\\w-]+"
+    },
+    {
+      "scope": "attribute",
+      "pattern": "[A-Za-z-]+(?=\\s*:)"
+    },
+    {
+      "scope": "number",
+      "pattern": "-?\\b\\d+(?:\\.\\d+)?(?:px|dp|sp|em|rem|vh|vw|%|s|ms)?"
+    },
+    {
+      "scope": "type",
+      "pattern": "[.#][A-Za-z_-][\\w-]*"
+    }
+  ]
+}

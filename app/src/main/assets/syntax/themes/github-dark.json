@@ -1,0 +1,35 @@
+{
+  "name": "GitHub Dark",
+  "editor": {
+    "background": "#FF0D1117",
+    "text": "#FFC9D1D9",
+    "selection": "#661F6FEB",
+    "gutter": "#FF0D1117",
+    "gutterLine": "#FF30363D",
+    "lineNumber": "#FF6E7681",
+    "lineNumberActive": "#FFC9D1D9",
+    "currentLine": "#FF161B22",
+    "indentGuide": "#FF21262D",
+    "bracketFill": "#4D388BFD",
+    "bracketStroke": "#FF8B949E",
+    "scrollbar": "#CC8B949E",
+    "scrollbarTrack": "#1A8B949E",
+    "iconTint": "#FF8B949E",
+    "swatchStroke": "#33FFFFFF"
+  },
+  "tokens": {
+    "keyword": "#FFFF7B72",
+    "tag": "#FF7EE787",
+    "constant": "#FF79C0FF",
+    "package": "#FFFFA657",
+    "attribute": "#FF79C0FF",
+    "type": "#FFFFA657",
+    "literal": "#FF79C0FF",
+    "number": "#FF79C0FF",
+    "string": "#FFA5D6FF",
+    "comment": "#FF8B949E",
+    "declaration": "#FFD2A8FF",
+    "function": "#FFD2A8FF",
+    "annotation": "#FFFFA657"
+  }
+}
