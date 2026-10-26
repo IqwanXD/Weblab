@@ -9,13 +9,26 @@ android {
 		applicationId "ru.iqwanoino.weblab"
 		namespace "ru.iqwanoino.weblab"
 		minSdkVersion 21
-		targetSdkVersion 28
+		targetSdkVersion 33
 		versionCode 9864
 		versionName "0.32"
 	}
 	
+	signingConfigs {
+		release {
+			def ksPath = System.getenv("KEYSTORE_PATH")
+			if (ksPath) {
+				storeFile file(ksPath)
+				storePassword System.getenv("KEYSTORE_PASSWORD")
+				keyAlias System.getenv("KEY_ALIAS")
+				keyPassword System.getenv("KEY_PASSWORD")
+			}
+		}
+	}
+	
 	buildTypes {
 		release {
+			signingConfig signingConfigs.release
 			minifyEnabled false
 			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 		}
