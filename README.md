@@ -70,7 +70,3 @@ Untuk build lokal:
 gradle assembleDebug
 gradle assembleRelease
 ```
-
-## Lisensi
-
-Belum ditentukan.
