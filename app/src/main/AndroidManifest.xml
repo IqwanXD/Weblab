@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ru.iqwanoino.weblab">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -35,7 +36,16 @@
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBar" />
-
+            
+        <activity
+			android:name=".InoSecurity"
+            android:theme="@style/NoActionBar"
+			android:configChanges="orientation|screenSize" />
+		<provider
+			android:name=".InoSecurity$Provider"
+			android:authorities="ru.iqwanoino.weblab.inosecurityprovider"
+			android:exported="false"
+			android:initOrder="999" />    
     </application>
 
 </manifest>

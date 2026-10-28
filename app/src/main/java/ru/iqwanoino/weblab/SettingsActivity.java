@@ -23,7 +23,7 @@ import android.widget.TextView;
 public class SettingsActivity extends Activity {
 
     private static final String URL_DISCORD = "https://discord.gg/u7QPpQD7QC";
-    private static final String URL_GITHUB = "https://github.com/IqwanXD/Weblab";
+    private static final String URL_GITHUB = "https://github.com/IqwanXD/";
     private static final String URL_TELEGRAM = "https://t.me/IqwanoINO/";
     private static final long REBUILD_DELAY_MS = 120;
     private static final String KEY_SCROLL = "scrollY";

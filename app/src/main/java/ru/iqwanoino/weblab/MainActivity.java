@@ -48,7 +48,7 @@ public class MainActivity extends Activity {
 	private static final String URL_TELEGRAM = "https://t.me/IqwanoINO/";
 	
 	private static final int M_MUAT = 1, M_SIMPAN = 2, M_BAGIKAN = 3, M_PRATINJAU = 4,
-	M_RAPIKAN = 5, M_SIMBOL_OTOMATIS = 6;
+	M_RAPIKAN = 5, M_SIMBOL_OTOMATIS = 6, M_ERUDA = 7;
 	
 	private static final String[] SYMBOLS = {
 		"Tab", "<", ">", "/", "=", "\"", "'", "{", "}", "(", ")", "[", "]", ";", ":", "&", "!", "-", "_"
@@ -68,6 +68,7 @@ public class MainActivity extends Activity {
 	private String currentName = NAMA_BERKAS_BARU;
 	private String currentBaseUrl = DEFAULT_BASE;
 	private boolean previewing;
+	private boolean erudaOn;
 	private int bottomInset;
 	
 	@Override
@@ -380,7 +381,21 @@ public class MainActivity extends Activity {
 		undoBtn.setVisibility(View.GONE);
 		redoBtn.setVisibility(View.GONE);
 		symbolBar.setVisibility(View.GONE);
+		erudaOn = false;
 		preview.loadDataWithBaseURL(currentBaseUrl, editor.getText().toString(), "text/html", "UTF-8", null);
+	}
+
+	/** Tampilkan atau sembunyikan konsol Eruda di dalam pratinjau. Eruda dimuat sekali dari CDN. */
+	private void toggleEruda() {
+		erudaOn = !erudaOn;
+		String js = erudaOn
+			? "(function(){if(window.eruda){eruda.show();return;}"
+			+ "var s=document.createElement('script');"
+			+ "s.src='https://cdn.jsdelivr.net/npm/eruda';"
+			+ "s.onload=function(){eruda.init();eruda.show();};"
+			+ "document.head.appendChild(s);})();"
+			: "if(window.eruda){eruda.hide();}";
+		preview.evaluateJavascript(js, null);
 	}
 	
 	private void showEditor() {
@@ -398,13 +413,14 @@ public class MainActivity extends Activity {
 	
 	/** Menu titik tiga: muat, simpan, bagikan, pratinjau, lalu rapikan kode dan simbol otomatis. */
 	private void showEditorMenu(View anchor) {
-		new M3Menu(this)
+		M3Menu menu = new M3Menu(this)
 		.add(M_MUAT, R.drawable.ic_upload, "Muat")
 		.add(M_SIMPAN, R.drawable.ic_save, "Simpan")
 		.add(M_BAGIKAN, R.drawable.ic_share, "Bagikan")
 		.add(M_PRATINJAU, previewing ? R.drawable.ic_code : R.drawable.ic_play,
-		previewing ? "Tutup pratinjau" : "Pratinjau")
-		.addDivider()
+		previewing ? "Tutup pratinjau" : "Pratinjau");
+		if (previewing) menu.addCheck(M_ERUDA, R.drawable.ic_code, "Eruda console", erudaOn);
+		menu.addDivider()
 		.add(M_RAPIKAN, R.drawable.ic_code, "Rapikan kode")
 		.addCheck(M_SIMBOL_OTOMATIS, R.drawable.ic_tune, "Lengkapi simbol otomatis", Prefs.autoPair())
 		.setOnItemClickListener(id -> {
@@ -413,6 +429,7 @@ public class MainActivity extends Activity {
 				case M_SIMPAN: showSaveSheet(); break;
 				case M_BAGIKAN: shareText(); break;
 				case M_PRATINJAU: togglePreview(); break;
+				case M_ERUDA: toggleEruda(); break;
 				case M_RAPIKAN:
 				if (previewing) showEditor();
 				prettyPrint();
@@ -426,8 +443,8 @@ public class MainActivity extends Activity {
 				break;
 				default: break;
 			}
-		})
-		.show(anchor);
+		});
+		menu.show(anchor);
 	}
 	
 	/** Rapikan HTML. Perubahan masuk ke riwayat undo. */
